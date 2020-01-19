@@ -5,3 +5,5 @@ PALETTE = {
 }
 
 LINE = '-' * 100
+
+ELEMENTS = [1, 0]
