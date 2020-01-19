@@ -1,2 +1,0 @@
-colorful==0.5.4
-numpy==1.18.1

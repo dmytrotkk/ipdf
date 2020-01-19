@@ -2,6 +2,12 @@
 
 Library for the iterated evolutionary tournaments between memory-based agents.
 
+## Installation
+
+```bash
+pip install ipdframework
+```
+
 ## Usage
 
 ### Strategies
@@ -42,9 +48,10 @@ game.log_game_info()
 
 Python version: 3.6+
 
-Install dependencies:
+Install w/ dev dependencies:
+
 ```bash
-pip install -r requirements.txt
+pip install -e .[dev]
 ```
 
 ### Author
