@@ -1,20 +1,20 @@
-from strategies.abstract import AbstractStrategy
-from helper import two_powers, binary_arr_to_decimal
+from ipdf.strategies.abstract import AbstractStrategy
+from ipdf.helper import two_powers, binary_arr_to_decimal
+
 
 class MemoryBasedStrategy(AbstractStrategy):
     def __init__(self, sequence_str):
         super().__init__(sequence_str)
         self.__sequence_str = sequence_str
-        self.generate_responces()
+        self.generate_responses()
         self.responses_len = len(self.responses)
 
-    def generate_responces(self):
+    def generate_responses(self):
         self.responses = []
         strategy_list = list(self.__sequence_str)
         parts_len = self.calc_parts_len()
         for part in parts_len:
             resp = [strategy_list.pop(0) for _ in range(part)]
-            strategy_list[:part]
             self.responses.append(resp)
 
     def calc_parts_len(self):
