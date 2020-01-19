@@ -10,6 +10,8 @@ LOGGER = logging.getLogger(__name__)
 
 
 class MemoryStrategiesStorage():
+    """MemoryStrategiesStorage class allows you to generate and store  memory-based strategies"""
+
     def __init__(self, mem_depth):
         self.mem_depth = mem_depth - 1
         self.calc_strategy_len()

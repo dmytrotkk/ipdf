@@ -36,8 +36,6 @@ print(strategy.name(), '=>', strategy_1.responses)
 
 Game class allows users to emulate interactions between two strategies
 
-Usage example:
-
 ```python
 from ipdf.game import Game
 from ipdf.strategies.memory_based import MemoryBasedStrategy
@@ -55,6 +53,10 @@ game.log_game_info()
 
 ### Memory based strategies storage
 
+MemoryStrategiesStorage class allows you to generate and store  memory-based strategies.
+
+Used to generate a pack with evey possible strategy with certain memory depth.
+
 ```python
 from ipdf.memory_strategies_storage import MemoryStrategiesStorage
 
@@ -64,6 +66,25 @@ strategies_st.log_storage_info()
 
 for strategy in strategies_st.strategies():
     print(strategy.responses)
+```
+
+### Memory tournament
+
+Encapsulates evolutionary tournament logic.  
+
+Class allows user to emulate tournament between each and every strategy with certain memory depth. Users can set memory depth and number of interactions between each pair of strategies.
+
+```python
+from ipdf.memory_tournament import MemoryStrategiesTournament
+from ipdf.payment_matrix import init_default_payment_matrix
+
+num_of_interactions = 50
+mem_depth = 2
+
+payment_matrix = init_default_payment_matrix()
+memory_strategies_tournament = MemoryStrategiesTournament(mem_depth, payment_matrix)
+memory_strategies_tournament.play(num_of_interactions)
+memory_strategies_tournament.save()
 ```
 
 ## Development
