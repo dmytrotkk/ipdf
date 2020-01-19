@@ -2,6 +2,15 @@
 
 Library for the iterated evolutionary tournaments between memory-based agents.
 
+## Table of Contents
+
+1. [Installation](#installation)
+2. [Usage](#usage)  
+    2.1 [Strategies](#strategies)  
+    2.2 [Game](#game)  
+    2.3 [Memory based strategies storage](#memory-based-strategies-storage)  
+3. [Development](#development)
+
 ## Installation
 
 ```bash
