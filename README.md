@@ -9,6 +9,7 @@ Library for the iterated evolutionary tournaments between memory-based agents.
     2.1 [Strategies](#strategies)  
     2.2 [Game](#game)  
     2.3 [Memory based strategies storage](#memory-based-strategies-storage)  
+    2.4 [Memory tournament](#memory-tournament)  
 3. [Development](#development)
 
 ## Installation
