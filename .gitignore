@@ -116,3 +116,7 @@ tournament_results_tmp/
 # mac 
 
 .DS_Store
+
+# datafiles
+
+evolution_tournament_results.json

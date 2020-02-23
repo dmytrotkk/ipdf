@@ -8,12 +8,12 @@ from ipdf.game import Game
 from ipdf.memory_strategies_storage import MemoryStrategiesStorage
 from ipdf.payment_matrix import init_default_payment_matrix
 from ipdf.logs import init_logger, color_args_str
+from ipdf.helper import save_to_datadir
+from ipdf.constants import TOURNAMENT_RESULTS_FILEPATH
 
 
 init_logger()
 LOGGER = logging.getLogger(__name__)
-
-DATA_DIR = 'tournament_results'
 
 
 class MemoryStrategiesTournament():
@@ -44,22 +44,29 @@ class MemoryStrategiesTournament():
             self.scores.append({'name': strategy1.name(), 'score': strategy_score})
             LOGGER.info(f'{strategy1.name()} total: {strategy_score}')
 
-    def save(self):
-        info = {
-            'memory_depth': self.mem_depth,
-            'iterations': self.iterations,
-            'results': self.scores
-        }
-        time = datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S')
-        filename = f'evolution_tournament_{time}.json'
+    def save(self, filepath=TOURNAMENT_RESULTS_FILEPATH):
+        save_tournament_results(
+            mem_depth=self.mem_depth,
+            iterations=self.iterations,
+            results=self.scores
+        )
 
-        if not os.path.exists(DATA_DIR):
-            os.makedirs(DATA_DIR)
 
-        filepath = os.path.join(DATA_DIR, filename)
-        with open(filepath, 'w') as outfile:
-            LOGGER.info(f'Saving info to {filename}')
-            json.dump(info, outfile, indent=4)
+def save_tournament_results(mem_depth, iterations, results, filepath=TOURNAMENT_RESULTS_FILEPATH):
+    save_to_datadir(
+        data={
+            'memory_depth': mem_depth,
+            'iterations': iterations,
+            'results': results
+        },
+        filepath=filepath
+    )
+
+
+def load_tournament_results(filepath=TOURNAMENT_RESULTS_FILEPATH):
+    with open(filepath) as json_file:
+        results = json.load(json_file)
+    return (results['memory_depth'], results['iterations'], results['results'])
 
 
 if __name__ == '__main__':
