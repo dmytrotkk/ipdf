@@ -24,7 +24,7 @@ class MemoryStrategiesTournament():
         self.memory_strategies_storage = MemoryStrategiesStorage(mem_depth)
         self.payment_matrix = payment_matrix
         self.scores = []
-    
+
     def play(self, n_moves):
         self.iterations = n_moves
         for strategy1 in self.memory_strategies_storage.strategies():
@@ -43,7 +43,6 @@ class MemoryStrategiesTournament():
                 strategy_score += game.st1.score
             self.scores.append({'name': strategy1.name(), 'score': strategy_score})
             LOGGER.info(f'{strategy1.name()} total: {strategy_score}')
-
 
     def save(self):
         info = {

@@ -26,10 +26,13 @@ class MemoryBasedStrategy(AbstractStrategy):
         return len(two_powers(sequence_len)) - 2
 
     def get_move(self, opponent_responses):
-        opponent_responses_len = len(opponent_responses)    
+        opponent_responses_len = len(opponent_responses)
         strategy_responses_len = self.responses_len - 1
 
-        s_part_ind = strategy_responses_len if opponent_responses_len >= strategy_responses_len else opponent_responses_len
+        if opponent_responses_len >= strategy_responses_len:
+            s_part_ind = strategy_responses_len
+        else:
+            s_part_ind = opponent_responses_len
         s_part = self.responses[s_part_ind]
 
         offset = opponent_responses_len - strategy_responses_len

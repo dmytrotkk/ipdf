@@ -27,7 +27,8 @@ setup(
     include_package_data=True,
     install_requires=[
         "colorful==0.5.4",
-        "numpy==1.18.1"
+        "numpy==1.18.1",
+        "scikit-learn==0.22.1"
     ],
     python_requires='>=3.6,<4',
     extras_require=extras_require,

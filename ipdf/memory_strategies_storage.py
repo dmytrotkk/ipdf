@@ -35,8 +35,8 @@ class MemoryStrategiesStorage():
 
     def log_storage_info(self):
         args = {
-            'Memory depth': self.mem_depth, 
-            'Strategy length': self.strategy_len, 
+            'Memory depth': self.mem_depth,
+            'Strategy length': self.strategy_len,
             'Number of strategies': len(self.__strategies)
         }
         LOGGER.info(color_args_str(args, 'Strategies storage info'))
